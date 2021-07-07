@@ -1,0 +1,106 @@
+
+
+main {
+	/* bring down abit so no overlap with header element - no need since is a sticky position. only for position fixed (not recommended)*/
+	
+}
+
+
+
+/* overarching container for the navbar */
+header {
+	/* changed into a flex container, note that this also applies to one level down */
+	display: flex;
+	
+	
+	/* fix to top of page, and create a buffer so the body doesn't overlap */
+	position: sticky;
+	top: 0;
+	/*border: 2px solid;*/
+	background-color: white;
+		
+	/* appear in front of other items */
+	z-index: 1;
+}
+
+img {
+	border-radius: 15px;
+}
+
+nav {
+	
+	/*border: 2px solid;
+	background-color:red;*/
+	
+	margin: auto;
+	box-sizing: border-box;
+	
+	/* automatically inherits the flex properties */
+	/* required so that the nav element fills up the rest of the heading flex container */
+	flex-grow: 1;
+	align-items: stretch;
+		
+	
+}
+
+ul {
+	/*border: 1px solid blue; */
+	
+	background-color: white;
+
+	/* remove the bullets */
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	
+	/* enables li to be treated as flex elements, and places elements at end of the flex container */
+	display: flex;
+	justify-content: flex-end;
+	
+}
+
+li {
+		
+	border: 1px solid;
+	background-color: lightblue;
+	
+	
+	/* set text properties of the links
+	margin: 5px;
+	width: 100px;
+	*/
+	margin: 10px;
+	width: 100px;
+	padding: 5px;
+	text-align: center;
+	font-size: 20px;
+}
+
+
+li:hover {
+	background-color: lightgreen;
+	transform: scale(1.1, 1.1);
+}
+
+
+
+/*override for smaller screens*/
+@media (max-width: 600px) {
+	header {
+		flex-direction: column;
+		align-items: center;
+	}
+	nav{
+		/* need nav element to take up the full screen */
+		width: 100%;
+	}
+	ul {
+		flex-direction: column;
+	}
+	li {
+		/* remove desktop margin, set width to full screen, and account for borders */
+		margin: 0;
+		width: 100%;
+		box-sizing: border-box;
+	}
+}	
